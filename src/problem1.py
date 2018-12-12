@@ -3,13 +3,13 @@ Exam 1, problem 1.
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher,
          Mark Hays, Amanda Stouder, Aaron Wilkin, their colleagues,
-         and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         and John Neill.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
 # -----------------------------------------------------------------------------
-# TODO: 2. Right-click on the  src  folder and
+# DONE: 2. Right-click on the  src  folder and
 #              Mark Directory as ... Sources Root,
 #          if you have not already done so.
 # -----------------------------------------------------------------------------
@@ -64,6 +64,20 @@ def run_test_problem1():
 
 
 def problem1(square, thickness, window):
+
+    square.attach_to(window)
+    this_is_a_point = rg.Point(square.center.x, square.center.y + square.length_of_each_side)
+    serbia_stronk = rg.Circle(this_is_a_point, square.length_of_each_side / 2)
+    serbia_stronk.fill_color = square.fill_color
+    serbia_stronk.outline_thickness = thickness
+    serbia_stronk.attach_to(window)
+    another_point = rg.Point(square.center.x - (square.length_of_each_side / 2), square.center.y)
+    holy_crap_a_line = rg.Line(serbia_stronk.center, another_point)
+    holy_crap_a_line.color = square.outline_color
+    holy_crap_a_line.thickness = thickness
+    holy_crap_a_line.attach_to(window)
+    window.render()
+
     """
     See   problem1_picture.pdf   in this project for pictures
     that may help you better understand the following specification:
@@ -101,7 +115,7 @@ def problem1(square, thickness, window):
       :type window:    rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
+    # DONE: 3. Implement and test this function.  SEE THE PICTURES in the PDF!
     #          Tests have been written for you (above).
     # -------------------------------------------------------------------------
 
